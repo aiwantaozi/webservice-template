@@ -1,0 +1,83 @@
+openapi: 3.0.3
+info:
+  title: OpenAPI schema for template .
+components:
+  schemas:
+    variables:
+      type: object
+      required:
+      - image
+      properties:
+        image:
+          title: Image
+          type: string
+          description: Docker image name
+          x-walrus-ui:
+            group: Basic
+            order: 1
+        ports:
+          title: Ports
+          type: array
+          description: Service ports to expose
+          default:
+          - 80
+          items:
+            type: number
+          x-walrus-ui:
+            colSpan: 12
+            group: Basic
+            order: 2
+        env:
+          title: Env
+          type: object
+          description: Name and value pairs to set as the environment variables
+          default: {}
+          additionalProperties:
+            type: string
+          x-walrus-ui:
+            colSpan: 12
+            group: Basic
+            order: 3
+        replicas:
+          title: Replicas
+          type: number
+          description: Replicas to deploy
+          default: 1
+          x-walrus-ui:
+            group: Basic
+            order: 4
+        request_cpu:
+          title: Request Cpu
+          type: string
+          description: CPU request. e.g. 0.5, 1, 2
+          default: "0.1"
+          x-walrus-ui:
+            group: Basic
+            order: 5
+        request_memory:
+          title: Request Memory
+          type: string
+          description: Memory request. e.g. 128Mi, 512Mi, 1Gi, 2Gi, 4Gi
+          default: 128Mi
+          x-walrus-ui:
+            group: Basic
+            order: 6
+        limit_cpu:
+          title: Limit Cpu
+          type: string
+          description: CPU limit. e.g. 0.5, 1, 2
+          default: ""
+          x-walrus-ui:
+            group: Basic
+            order: 7
+        limit_memory:
+          title: Limit Memory
+          type: string
+          description: Memory limit. e.g. 128Mi, 512Mi, 1Gi, 2Gi, 4Gi
+          default: ""
+          x-walrus-ui:
+            group: Basic
+            order: 8
+      x-walrus-ui:
+        groupOrder:
+        - Basic
