@@ -11,7 +11,7 @@ components:
         image:
           title: Image
           type: string
-          description: Docker image name
+          description: Docker image name test
           x-walrus-ui:
             group: Basic
             order: 1
